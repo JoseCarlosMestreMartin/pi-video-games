@@ -6,7 +6,7 @@ import { alphabetically, filterByGenres, filterByOrigin, orderByRating } from '.
 import SearchBar from '../SearchBar/SearchBar';
 
 const CardsContainer = ({games}) => {
-  const st = { width: '80px', marginBottom: '4em', marginRight: '1em' };
+  // const st = { width: '80px', marginBottom: '4em', marginRight: '1em' };
   const dispatch = useDispatch();
   
   const [currentPage, setCurrentPage] = useState(1);
@@ -86,7 +86,7 @@ const CardsContainer = ({games}) => {
       </div>
 
       
-        <SearchBar setCurrentPage={setCurrentPage} />
+      <SearchBar setCurrentPage={setCurrentPage} />
       
       <div className={styles.container}>
         {currentElements.length === 0 && <h1>Buscando juegos, por favor espera...</h1>}

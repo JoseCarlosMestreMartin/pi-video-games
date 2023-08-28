@@ -3,7 +3,7 @@
   padding: 15px;
   line-height: normal;
   text-decoration: none;
-  color: khaki;
+  color: rgb(29, 83, 198);
   transition: all 0.3s ease;
   border-bottom: 2px solid transparent;
   font-size: 20px;
@@ -11,6 +11,6 @@
 }
 
 .navLink:hover {
-  border-bottom: 2px solid #29af1d;
-  padding-bottom: 5px;
+  background-color: rgb(29, 83, 198);
+  color: white;
 }

@@ -1,5 +1,5 @@
 .todo {
-  background-color: magenta;
+  background-color: rgb(146, 137, 146);
   display: flex;
   flex-direction: column;
 }
@@ -20,7 +20,7 @@
 }
 
 .button {
-  /* margin-top: 1.5em; */
+  
   background-color: rgb(24 24 24);
   color: khaki;
   border: 1px solid khaki;
@@ -76,7 +76,7 @@
   justify-content: center; /* horizontally center the content */
   align-items: center; /* vertically center the content */
   width: 65px;
-  height: 4.2vh;
+  /* height: 4.2vh; */
   color: rgb(0, 0, 0);
   background-color: rgb(255, 255, 255);
 }
