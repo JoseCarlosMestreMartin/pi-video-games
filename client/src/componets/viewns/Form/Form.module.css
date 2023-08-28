@@ -1,0 +1,59 @@
+.container {
+  display: grid;
+  place-content: center;
+}
+.container h1{
+  width: 70%;
+  text-align: center;
+}
+.container input {
+  background-color: brown;
+  margin-bottom: 1em;
+  width: 15em;
+  cursor: pointer;
+  height: 4.2vh;
+  color: khaki;
+  background-color: rgb(24, 24, 24);
+  border-color: inherit;
+  border: 2px solid khaki;
+  border-radius: 0.375rem 0 0.375rem 0;
+}
+
+.container select {
+  width: 10em;
+  cursor: pointer;
+  height: 10em;
+  color: khaki;
+  background-color: rgb(24, 24, 24);
+  border-color: inherit;
+  border: 2px solid khaki;
+  border-radius: 0.375rem 0 0.375rem 0;
+}
+.container button {
+  width: 10em;
+  cursor: pointer;
+  height: 4.2vh;
+  color: khaki;
+  background-color: rgb(24, 24, 24);
+  border-color: inherit;
+  border: 2px solid khaki;
+  border-radius: 0.375rem 0 0.375rem 0;
+}
+
+.container textarea {
+  width: 14.9em;
+  cursor: pointer;
+  height: 15em;
+  color: khaki;
+  background-color: rgb(24, 24, 24);
+  border-color: inherit;
+  border: 2px solid khaki;
+  border-radius: 0.375rem 0 0.375rem 0;
+}
+.container label {
+  display: flex;
+  direction: row;
+}
+.container button {
+  height: 4em;
+}

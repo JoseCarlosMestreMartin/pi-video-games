@@ -1,0 +1,28 @@
+
+.container {
+  background-color: rgb(252, 108, 24);;
+  margin-bottom: 6em;
+  border-radius: 10px; /* Añade bordes redondeados */
+  border: 2px solid rgb(101, 42, 8); /* Un color más oscuro para los bordes */
+}
+
+.container input {
+  width: 15vw;
+  cursor: pointer;
+  height: 3vh;
+  padding: 3px;
+  color: khaki;
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgb(252, 108, 24); /* Un color más oscuro para los bordes */
+  border-radius: 10px; /* Añade bordes redondeados */
+}
+
+.container button {
+  width: 65px;
+  cursor: pointer;
+  height: 4.2vh;
+  color: khaki;
+  background-color: rgb(252, 108, 24);
+  border: 2px solid rgb(72, 32, 9); /* Un color más oscuro para los bordes */
+  border-radius: 10px; /* Añade bordes redondeados */
+}

@@ -1,0 +1,82 @@
+.todo {
+  background-color: magenta;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 1em;
+  background-color: red;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  gap: 0.5em;
+}
+
+.button {
+  /* margin-top: 1.5em; */
+  background-color: rgb(24 24 24);
+  color: khaki;
+  border: 1px solid khaki;
+  border-radius: 0.375rem 0 0.375rem 0;
+}
+
+.button:active,button:focus {
+  background-color: transparent;
+}
+
+.pagContainer {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1em;
+  width: 20%;
+  margin-top: 2em;
+  margin-left: 32em;
+}
+
+.pagContainer button {
+  background-color: black;
+  color: khaki;
+  border: 2px solid khaki;
+  border-radius: 0 0.375rem 0.375rem 0;
+}
+
+
+.filtros {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 5px;
+  background-color: gray;
+  border: solid black 3px;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+
+.filtros select {
+  width: 65px;
+  cursor: pointer;
+  height: 4.2vh;
+  color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
+  border-color: inherit;
+  border: 2px solid khaki;
+  border-radius: 0 0.375rem 0.375rem 0;
+}
+
+.filtros span {
+  display: flex;
+  justify-content: center; /* horizontally center the content */
+  align-items: center; /* vertically center the content */
+  width: 65px;
+  height: 4.2vh;
+  color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
+}

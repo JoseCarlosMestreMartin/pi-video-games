@@ -1,0 +1,16 @@
+.navLink {
+  display: inline-block;
+  padding: 15px;
+  line-height: normal;
+  text-decoration: none;
+  color: khaki;
+  transition: all 0.3s ease;
+  border-bottom: 2px solid transparent;
+  font-size: 20px;
+  margin-right: 5px;
+}
+
+.navLink:hover {
+  border-bottom: 2px solid #29af1d;
+  padding-bottom: 5px;
+}

@@ -1,0 +1,26 @@
+.container {
+  display: grid;
+  place-content: center;
+  margin: -8px;
+  height: 800px;
+  width: 101%;
+  background-image: url("https://media.rawg.io/media/games/2ee/2ee5fe3d7fd4056b5600d803781dbc34.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.navLink {
+  display: inline-block;
+  padding: 15px;
+  line-height: normal;
+  text-decoration: none;
+  color: khaki;
+  transition: all 0.3s ease;
+  border-bottom: 2px solid transparent;
+  font-size: 3.5em;
+  margin-right: 5px;
+}
+
+.navLink:hover {
+  border-bottom: 2px solid #29af1d;
+  padding-bottom: 5px;
+}

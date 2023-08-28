@@ -1,0 +1,27 @@
+
+.mainCotainer {
+  border-radius: 10px; /* Añade bordes redondeados */
+  border: 4px solid rgb(65, 57, 37); /* Un color más oscuro para los bordes */
+  background: rgb(152, 212, 141);
+}
+
+.navLink {
+  display: inline-block;
+  padding: 15px;
+  line-height: normal;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  transition: all 0.3s ease;
+  border-bottom: 2px solid transparent;
+  font-size: 20px;
+  margin-right: 5px;
+  border-radius: 10px; /* Añade bordes redondeados */
+  border: 4px solid rgb(40, 61, 70); /* Un color más oscuro para los bordes */
+  background: rgb(252, 108, 24);
+}
+
+.navLink:hover {
+  background: rgb(255, 255, 255);
+  color: rgb(252, 108, 24);
+}
+
