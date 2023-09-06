@@ -1,0 +1,24 @@
+
+/* container.module.css */
+.container {
+  background-color: #f0f0f0;
+  padding: 20px;
+}
+
+/* module.module.css */
+.module {
+  margin-bottom: 10px;
+}
+
+.module label {
+  font-weight: bold;
+}
+
+.module input {
+  margin-bottom: 5px;
+}
+
+.module ul {
+  list-style-type: none;
+  padding-left: 0;
+}

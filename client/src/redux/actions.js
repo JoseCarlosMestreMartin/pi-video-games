@@ -6,10 +6,19 @@ import {
   ALPHABETH,
   GET_VIDEOGAME_BY_NAME,
   GET_ALL_GENRES,
+  FILTER,
+  SET_FILTER,
 } from "./index";
 import axios from "axios";
 
 const URL = "/videogames/";
+export const filterCard = (payload) => {
+  console.log("dentro del filterCard de action");
+  return { type: FILTER, payload };
+};
+export const setFilter = (payload) => {
+  return { type: SET_FILTER, payload };
+};
 
 export const filterByGenres = (payload) => {
   return { type: FILTER_GENRES, payload };

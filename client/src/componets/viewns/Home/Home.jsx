@@ -4,21 +4,30 @@ import { Link } from "react-router-dom";
 import { CardsContainer } from "../..";
 import { useDispatch, useSelector } from "react-redux";
 import { getGames, getAllGenres } from "../../../redux/actions";
-
+import FilterContainer from "../../FilterContainer/FilterContainer";
 
 const Home = () => {
   const dispatch = useDispatch();
-  const {filterVideogames: games} = useSelector(state => state)
+  const { filterVideogames: games } = useSelector((state) => state);
 
   useEffect(() => {
     !games.length && dispatch(getGames());
     dispatch(getAllGenres());
   }, [dispatch, games]);
+  ///
+  const eleccion = [
+    { id: 1, nombre: "genres"},
+    { id: 2, nombre: "Created"},
+  ];
+  ///
 
   return (
     <div>
-      <CardsContainer games={games}/>
-      <Link to="/" className={styles.navLink}>BACK</Link>
+      <FilterContainer data={ eleccion} />
+      <CardsContainer games={games} />
+      <Link to="/" className={styles.navLink}>
+        BACK
+      </Link>
     </div>
   );
 };

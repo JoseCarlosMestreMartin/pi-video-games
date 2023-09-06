@@ -1,6 +1,6 @@
 //lista las distintas clacificaciones contenidas en la propiedad indicada dentro de los elementos del array pasado
 export function obtenerClasificaciones(array, propiedad) {
-  let clasificaciones = [];
+  let clasificaciones = ["All"];
 
   Array && Array.isArray(array) && array.forEach((objeto) => {
     if (objeto[propiedad] && Array.isArray(objeto[propiedad])) {
