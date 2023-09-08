@@ -1,7 +1,5 @@
 import {
   GET_ALLGAMES,
-  FILTER_GENRES,
-  FILTER_ORIGIN,
   ORDER,
   ALPHABETH,
   GET_VIDEOGAME_BY_NAME,
@@ -19,9 +17,10 @@ const initialState = {
   cardFilter: [
     { propiety: "genres", selection: "All" },
     { propiety: "Created", selection: "All" },
-  ], // {propiety //propiedad a filtrar,
-  // options [] //posibles opciones a elegir en propiedades
-  // selections [] // opciones elegidas,
+  ], 
+  nameToSearch: "",
+  orderedBy: "",
+  typeOfOrderIsAtoZ: true,
   cardOptionToFilter: [], //propieties // Lista de propiedades
 };
 
@@ -75,23 +74,6 @@ const rootReducer = (state = initialState, { type, payload }) => {
       }
       console.log("----------filteredCards: ", filteredCards);
       return { ...state, filterVideogames: filteredCards };
-
-    ///
-    case FILTER_GENRES:
-      const filterFunction = (vg) => {
-        return payload.some((genre) => vg.genres.includes(genre));
-      };
-      let copy = state.videogames.filter(filterFunction);
-      return { ...state, filterVideogames: copy };
-
-    case FILTER_ORIGIN:
-      let copy1 =
-        payload === "ALL"
-          ? state.videogames
-          : state.videogames.filter((game) => {
-              return game.Created === payload;
-            });
-      return { ...state, filterVideogames: copy1 };
 
     case ORDER:
       let copy2 = state.videogames.sort((a, b) => {

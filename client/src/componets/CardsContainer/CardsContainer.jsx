@@ -4,8 +4,6 @@ import { Card } from "../";
 import { useDispatch, useSelector } from "react-redux";
 import {
   alphabetically,
-  filterByGenres,
-  filterByOrigin,
   orderByRating,
 } from "../../redux/actions";
 import SearchBar from "../SearchBar/SearchBar";
@@ -14,8 +12,6 @@ import { obtenerClasificaciones } from "../../utils";
 const CardsContainer = ({ games }) => {
   const { genres: listGenres, videogames } = useSelector((state) => state);
   const listOfGenres = obtenerClasificaciones(videogames, "genres");
-  // console.log("listOfGenres: ", listOfGenres);
-  // console.log("listGenres: ", listGenres);
 
   const dispatch = useDispatch();
 
@@ -31,14 +27,6 @@ const CardsContainer = ({ games }) => {
     pageNumbers.push(i);
   }
 
-  const handlerFilter = (e) => {
-    dispatch(filterByGenres([e.target.value]));
-  };
-
-  const handlerOrigin = (e) => {
-    dispatch(filterByOrigin(e.target.value));
-  };
-
   const handlerOrder = (e) => {
     dispatch(orderByRating(e.target.value));
   };
@@ -50,7 +38,7 @@ const CardsContainer = ({ games }) => {
   return (
     <div className={styles.todo}>
       <div className={styles.filtros}>
-        <span>GENRES</span>
+        {/* <span>GENRES</span>
         <select onChange={handlerFilter}>
           {listOfGenres.length &&
             listOfGenres.map((option) => (
@@ -65,7 +53,7 @@ const CardsContainer = ({ games }) => {
           <option value="YES">DB</option>
           <option value="NO">API</option>
           <option value="ALL">ALL</option>
-        </select>
+        </select> */}
 
         <span>RATING</span>
         <select onChange={handlerOrder}>

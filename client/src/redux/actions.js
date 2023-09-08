@@ -20,13 +20,13 @@ export const setFilter = (payload) => {
   return { type: SET_FILTER, payload };
 };
 
-export const filterByGenres = (payload) => {
-  return { type: FILTER_GENRES, payload };
-};
+// export const filterByGenres = (payload) => {
+//   return { type: FILTER_GENRES, payload };
+// };
 
-export const filterByOrigin = (payload) => {
-  return { type: FILTER_ORIGIN, payload };
-};
+// export const filterByOrigin = (payload) => {
+//   return { type: FILTER_ORIGIN, payload };
+// };
 
 export const orderByRating = (payload) => {
   return { type: ORDER, payload };
