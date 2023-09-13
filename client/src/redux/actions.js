@@ -8,6 +8,7 @@ import {
   GET_ALL_GENRES,
   FILTER,
   SET_FILTER,
+  SET_ORDER,
 } from "./index";
 import axios from "axios";
 
@@ -19,14 +20,9 @@ export const filterCard = (payload) => {
 export const setFilter = (payload) => {
   return { type: SET_FILTER, payload };
 };
-
-// export const filterByGenres = (payload) => {
-//   return { type: FILTER_GENRES, payload };
-// };
-
-// export const filterByOrigin = (payload) => {
-//   return { type: FILTER_ORIGIN, payload };
-// };
+export const setOrder = (payload) => {
+  return { type: SET_ORDER, payload };
+};
 
 export const orderByRating = (payload) => {
   return { type: ORDER, payload };
@@ -52,6 +48,6 @@ export const getVideogameByName = (name) => {
 export const getAllGenres = () => {
   return async (dispatch) => {
     const { data } = await axios("http://localhost:3001/genres");
-    dispatch({type: GET_ALL_GENRES, payload: data});
+    dispatch({ type: GET_ALL_GENRES, payload: data });
   };
 };

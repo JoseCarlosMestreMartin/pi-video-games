@@ -5,6 +5,7 @@ import { CardsContainer } from "../..";
 import { useDispatch, useSelector } from "react-redux";
 import { getGames, getAllGenres } from "../../../redux/actions";
 import FilterContainer from "../../FilterContainer/FilterContainer";
+import Order from "../../Order/Order";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -24,6 +25,7 @@ const Home = () => {
   return (
     <div>
       <FilterContainer data={ eleccion} />
+      <Order />
       <CardsContainer games={games} />
       <Link to="/" className={styles.navLink}>
         BACK

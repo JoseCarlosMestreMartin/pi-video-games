@@ -38,23 +38,6 @@ const CardsContainer = ({ games }) => {
   return (
     <div className={styles.todo}>
       <div className={styles.filtros}>
-        {/* <span>GENRES</span>
-        <select onChange={handlerFilter}>
-          {listOfGenres.length &&
-            listOfGenres.map((option) => (
-              <option key={option} value={option}>
-                {option}
-              </option>
-            ))}
-        </select>
-
-        <span>ORIGIN</span>
-        <select onChange={handlerOrigin}>
-          <option value="YES">DB</option>
-          <option value="NO">API</option>
-          <option value="ALL">ALL</option>
-        </select> */}
-
         <span>RATING</span>
         <select onChange={handlerOrder}>
           <option value="Mayor">Mayor</option>

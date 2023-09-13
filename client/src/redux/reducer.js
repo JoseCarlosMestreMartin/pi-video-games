@@ -1,3 +1,4 @@
+import { filtrarTarjetasPorPropiedad, ordenarCards } from "../utils";
 import {
   GET_ALLGAMES,
   ORDER,
@@ -7,6 +8,7 @@ import {
   SET_FILTER,
   RESET_FILTER,
   FILTER,
+  SET_ORDER,
 } from "./index";
 
 const initialState = {
@@ -15,11 +17,11 @@ const initialState = {
   orderVideogames: [],
   genres: [],
   cardFilter: [
-    { propiety: "genres", selection: "All" },
-    { propiety: "Created", selection: "All" },
-  ], 
+    { property: "genres", selection: "All" },
+    { property: "Created", selection: "All" },
+  ],
   nameToSearch: "",
-  orderedBy: "",
+  cardOrder: [{ property: "name", isAscending: true }],
   typeOfOrderIsAtoZ: true,
   cardOptionToFilter: [], //propieties // Lista de propiedades
 };
@@ -37,13 +39,22 @@ const rootReducer = (state = initialState, { type, payload }) => {
     case SET_FILTER:
       let auxFilter = state.cardFilter.map((e) => {
         let eAux = e;
-        if (e.propiety === payload.propiety) {
+        if (e.property === payload.property) {
           eAux.selection = payload.selection;
         }
         return eAux;
       });
 
       return { ...state, cardFilter: auxFilter };
+
+    case SET_ORDER: ////////////////////////////////////////////////
+      let auxOrder = state.cardFilter.slice();
+      for (let i = 0; i < auxOrder.length; i++) {
+        if (auxOrder[i].property === payload.property) {
+          auxOrder[i].isAscendent = payload.isAscendent;
+        }
+      }
+      return { ...state, cardOrder: auxOrder };
 
     ///
     case FILTER:
@@ -53,22 +64,17 @@ const rootReducer = (state = initialState, { type, payload }) => {
         state.videogames.length > 0 &&
         state.cardFilter.length > 0
       ) {
-        ////-
-        console.log("state.cardFilter: ", state.cardFilter);
-        ///
-        if (state.cardFilter[0].selection === "All") {
-          filteredCards = state.videogames.slice();
-        } else {
-          filteredCards = state.videogames.filter((card) =>
-            card.genres.includes(state.cardFilter[0].selection)
-          );
-        }
-        if (state.cardFilter[1].selection !== "All") {
-          filteredCards = filteredCards.filter((card) => {
-            return card.Created === state.cardFilter[1].selection;
-          });
-        }
-        ///
+        filteredCards = filtrarTarjetasPorPropiedad(
+          state.videogames,
+          state.cardFilter[0].property,
+          state.cardFilter[0].selection
+        );
+        filteredCards = filtrarTarjetasPorPropiedad(
+          filteredCards,
+          state.cardFilter[1].property,
+          state.cardFilter[1].selection
+        );
+        filteredCards= ordenarCards(filteredCards,state.cardOrder[0].property,state.cardOrder[0].isAscending);
       } else {
         filteredCards = state.videogames.slice();
       }

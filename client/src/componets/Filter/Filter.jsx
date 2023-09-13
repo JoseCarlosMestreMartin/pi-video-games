@@ -12,7 +12,7 @@ const Filter = ({ item }) => {
     console.log('Identifier:', identifier);
     console.log('Selected option:', option);
     //aqui debe setear el filtro y ejecutar el filtrado
-    dispatch(setFilter({propiety: identifier, selection: option}));
+    dispatch(setFilter({property: identifier, selection: option}));
     dispatch(filterCard());
 
   };
