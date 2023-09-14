@@ -37,6 +37,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
       return { ...state, videogames: payload, filterVideogames: payload };
 
     case SET_FILTER:
+      console.log("state.cardOrder4: ", state.cardOrder);
       let auxFilter = state.cardFilter.map((e) => {
         let eAux = e;
         if (e.property === payload.property) {
@@ -44,20 +45,27 @@ const rootReducer = (state = initialState, { type, payload }) => {
         }
         return eAux;
       });
-
+      console.log("state.cardOrder3: ", state.cardOrder);
       return { ...state, cardFilter: auxFilter };
 
     case SET_ORDER: ////////////////////////////////////////////////
-      let auxOrder = state.cardFilter.slice();
+    console.log("state.filterVideogames: ",state.filterVideogames);
+    console.log("state.cardOrder: ", state.cardOrder);
+      let auxOrder = state.cardOrder.slice();
       for (let i = 0; i < auxOrder.length; i++) {
         if (auxOrder[i].property === payload.property) {
           auxOrder[i].isAscendent = payload.isAscendent;
         }
       }
-      return { ...state, cardOrder: auxOrder };
+      //ordenar las card
+      // let auxCards = ordenarCards(state.filterVideogames,);
+      let auxOrderedCards = ordenarCards(state.filterVideogames,state.cardOrder[0].property,state.cardOrder[0].isAscending);
+      console.log("state.cardOrder2: ", state.cardOrder);
+      return { ...state, filterVideogames: auxOrderedCards, cardOrder: auxOrder };
 
     ///
     case FILTER:
+      console.log("state.cardOrder5: ", state.cardOrder);
       let filteredCards = [];
       if (
         state.videogames &&
