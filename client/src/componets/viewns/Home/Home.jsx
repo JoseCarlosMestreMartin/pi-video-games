@@ -9,12 +9,12 @@ import Order from "../../Order/Order";
 
 const Home = () => {
   const dispatch = useDispatch();
-  const { filterVideogames: games } = useSelector((state) => state);
+  const { filterVideogames, cardFilter } = useSelector((state) => state);
 
   useEffect(() => {
-    !games.length && dispatch(getGames());
+    !filterVideogames.length && dispatch(getGames());
     dispatch(getAllGenres());
-  }, [dispatch, games]);
+  }, [dispatch, filterVideogames]);
   ///
   const eleccion = [
     { id: 1, nombre: "genres"},
@@ -26,7 +26,7 @@ const Home = () => {
     <div>
       <FilterContainer data={ eleccion} />
       <Order />
-      <CardsContainer games={games} />
+      <CardsContainer games={filterVideogames} theFilter= {cardFilter}/>
       <Link to="/" className={styles.navLink}>
         BACK
       </Link>

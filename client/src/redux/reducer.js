@@ -1,4 +1,4 @@
-import { filtrarTarjetasPorPropiedad, ordenarCards } from "../utils";
+import { filtrarTarjetasPorPropiedad, ordenarCards,sortCardsByCriteria } from "../utils";
 import {
   GET_ALLGAMES,
   ORDER,
@@ -6,22 +6,21 @@ import {
   GET_VIDEOGAME_BY_NAME,
   GET_ALL_GENRES,
   SET_FILTER,
-  RESET_FILTER,
   FILTER,
   SET_ORDER,
 } from "./index";
 
 const initialState = {
-  videogames: [],
-  filterVideogames: [],
-  orderVideogames: [],
+  videogames: [],//se guarda el total de cards
+  filterVideogames: [],// se guardan las cards a visualizar luego de filtrar y ordenar
+  //orderVideogames: [],
   genres: [],
   cardFilter: [
     { property: "genres", selection: "All" },
     { property: "Created", selection: "All" },
   ],
   nameToSearch: "",
-  cardOrder: [{ property: "name", isAscending: true }],
+  cardOrder: [{ property: "name", isAscending: true }],//propiedad y tipo de orden
   typeOfOrderIsAtoZ: true,
   cardOptionToFilter: [], //propieties // Lista de propiedades
 };
@@ -49,19 +48,16 @@ const rootReducer = (state = initialState, { type, payload }) => {
       return { ...state, cardFilter: auxFilter };
 
     case SET_ORDER: ////////////////////////////////////////////////
-    console.log("state.filterVideogames: ",state.filterVideogames);
-    console.log("state.cardOrder: ", state.cardOrder);
-      let auxOrder = state.cardOrder.slice();
-      for (let i = 0; i < auxOrder.length; i++) {
-        if (auxOrder[i].property === payload.property) {
-          auxOrder[i].isAscendent = payload.isAscendent;
+      let auxCriteriaToOrder = state.cardOrder.slice();
+      for (let i = 0; i < auxCriteriaToOrder.length; i++) {
+        if (auxCriteriaToOrder[i].property === payload.property) {
+          auxCriteriaToOrder[i].isAscending = payload.isAscending;
         }
       }
-      //ordenar las card
-      // let auxCards = ordenarCards(state.filterVideogames,);
-      let auxOrderedCards = ordenarCards(state.filterVideogames,state.cardOrder[0].property,state.cardOrder[0].isAscending);
+      let auxCards = state.filterVideogames.slice();
+      let auxCardsOrdered = sortCardsByCriteria(auxCards, auxCriteriaToOrder);
       console.log("state.cardOrder2: ", state.cardOrder);
-      return { ...state, filterVideogames: auxOrderedCards, cardOrder: auxOrder };
+      return { ...state, filterVideogames: auxCardsOrdered, cardOrder: auxCriteriaToOrder };
 
     ///
     case FILTER:
@@ -90,7 +86,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
       return { ...state, filterVideogames: filteredCards };
 
     case ORDER:
-      let copy2 = state.videogames.sort((a, b) => {
+      state.videogames.sort((a, b) => {
         if (payload === "Mayor") {
           return b.rating - a.rating;
         } else if (payload === "Minor") {
@@ -99,18 +95,20 @@ const rootReducer = (state = initialState, { type, payload }) => {
           return 0;
         }
       });
-      return { ...state, orderVideogames: copy2 };
+      //return { ...state, orderVideogames: copy2 };
+      return { ...state};// funciona por que ordena en el mismo estado, salteandose el setea atravezz de redux
 
     case ALPHABETH:
-      let copy3 = state.videogames.sort((a, b) => {
+      state.videogames.sort((a, b) => {
         if (payload === "A") {
           return a.name.localeCompare(b.name);
         } else if (payload === "Z") {
           return b.name.localeCompare(a.name);
         }
+        return 0;
       });
-
-      return { ...state, orderVideogames: copy3 };
+      //return { ...state, orderVideogames: copy3 };
+      return { ...state};
 
     default:
       return { ...state };
