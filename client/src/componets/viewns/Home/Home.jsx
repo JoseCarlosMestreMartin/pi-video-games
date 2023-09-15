@@ -24,8 +24,10 @@ const Home = () => {
 
   return (
     <div>
+      <div className={styles.container}>
       <FilterContainer data={ eleccion} />
       <Order />
+      </div>
       <CardsContainer games={filterVideogames} theFilter= {cardFilter}/>
       <Link to="/" className={styles.navLink}>
         BACK

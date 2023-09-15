@@ -6,6 +6,48 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import styles from './Order.module.css';
 
+// const Order = () => {
+//   const dispatch = useDispatch();
+//   const [property, setProperty] = useState('Name');
+//   const [ascending, setAscending] = useState(true);
+
+//   const orderCards = (property, ascending) => {
+//     // Dispatch the action to order the cards in the Redux state
+//     dispatch({
+//       type: 'SET_ORDER',
+//       payload: {
+//         property,
+//         ascending,
+//       },
+//     });
+//   };
+
+//   const handlePropertyChange = (e) => {
+//     setProperty(e.target.value);
+//     orderCards(property, ascending);
+//   };
+
+//   const handleOrderChange = (e) => {
+//     setAscending(e.target.value === 'ascending');
+//     orderCards(property, ascending);
+//   };
+
+//   return (
+//     <div className={styles.orderContainer}>
+//       <span>Sort by:</span>
+//       <select value={property} onChange={handlePropertyChange}>
+//         <option value="name">Name</option>
+//         <option value="rating">Rating</option>
+//       </select>
+//       <span>Order:</span>
+//       <select value={ascending ? 'ascending' : 'descending'} onChange={handleOrderChange}>
+//         <option value="ascending">Ascending</option>
+//         <option value="descending">Descending</option>
+//       </select>
+//     </div>
+//   );
+// };
+
 const Order = () => {
   const dispatch = useDispatch();
   const [property, setProperty] = useState('Name');
@@ -34,12 +76,12 @@ const Order = () => {
 
   return (
     <div className={styles.orderContainer}>
-      <span>Sort by:</span>
+      <span className={styles.text}>| Sort by:</span>
       <select value={property} onChange={handlePropertyChange}>
         <option value="name">Name</option>
         <option value="rating">Rating</option>
       </select>
-      <span>Order:</span>
+      <span className={styles.text}>Order:</span>
       <select value={ascending ? 'ascending' : 'descending'} onChange={handleOrderChange}>
         <option value="ascending">Ascending</option>
         <option value="descending">Descending</option>
@@ -47,5 +89,6 @@ const Order = () => {
     </div>
   );
 };
+
 
 export default Order;

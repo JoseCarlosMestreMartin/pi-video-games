@@ -1,8 +1,8 @@
-import { filtrarTarjetasPorPropiedad, ordenarCards,sortCardsByCriteria } from "../utils";
+import { filtrarTarjetasPorPropiedad, sortCardsByCriteria } from "../utils";
 import {
   GET_ALLGAMES,
-  ORDER,
-  ALPHABETH,
+//  ORDER,
+  //ALPHABETH,
   GET_VIDEOGAME_BY_NAME,
   GET_ALL_GENRES,
   SET_FILTER,
@@ -62,14 +62,14 @@ const rootReducer = (state = initialState, { type, payload }) => {
     ///
     case FILTER:
       console.log("state.cardOrder5: ", state.cardOrder);
-      let filteredCards = [];
+      let filteredCards = state.videogames.slice();
       if (
         state.videogames &&
         state.videogames.length > 0 &&
         state.cardFilter.length > 0
       ) {
         filteredCards = filtrarTarjetasPorPropiedad(
-          state.videogames,
+          filteredCards,
           state.cardFilter[0].property,
           state.cardFilter[0].selection
         );
@@ -78,38 +78,11 @@ const rootReducer = (state = initialState, { type, payload }) => {
           state.cardFilter[1].property,
           state.cardFilter[1].selection
         );
-        filteredCards= ordenarCards(filteredCards,state.cardOrder[0].property,state.cardOrder[0].isAscending);
-      } else {
-        filteredCards = state.videogames.slice();
-      }
+        
+      } 
       console.log("----------filteredCards: ", filteredCards);
       return { ...state, filterVideogames: filteredCards };
-
-    case ORDER:
-      state.videogames.sort((a, b) => {
-        if (payload === "Mayor") {
-          return b.rating - a.rating;
-        } else if (payload === "Minor") {
-          return a.rating - b.rating;
-        } else {
-          return 0;
-        }
-      });
-      //return { ...state, orderVideogames: copy2 };
-      return { ...state};// funciona por que ordena en el mismo estado, salteandose el setea atravezz de redux
-
-    case ALPHABETH:
-      state.videogames.sort((a, b) => {
-        if (payload === "A") {
-          return a.name.localeCompare(b.name);
-        } else if (payload === "Z") {
-          return b.name.localeCompare(a.name);
-        }
-        return 0;
-      });
-      //return { ...state, orderVideogames: copy3 };
-      return { ...state};
-
+   
     default:
       return { ...state };
   }

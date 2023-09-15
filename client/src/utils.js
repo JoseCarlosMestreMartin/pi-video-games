@@ -36,16 +36,6 @@ export function findCards(cards, searchString) {
   });
 }
 
-export function ordenarCards(cards, propiedad = "Name", ascendente = true) {
-  return cards.sort((a, b) => {
-    if (ascendente) {
-      return a[propiedad] - b[propiedad];
-    } else {
-      return b[propiedad] - a[propiedad];
-    }
-  });
-}
-
 export function filtrarTarjetasPorPropiedad(
   tarjetas,
   nombrePropiedad,

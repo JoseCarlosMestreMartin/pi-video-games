@@ -14,3 +14,9 @@
   background-color: rgb(29, 83, 198);
   color: white;
 }
+.container {
+  display: flex;
+  flex-direction: row;
+  border: 4px violet solid;
+  background-color: rgb(244, 216, 244);
+}

@@ -1,24 +1,17 @@
-
-/* container.module.css */
 .container {
-  background-color: #f0f0f0;
-  padding: 20px;
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
 }
 
-/* module.module.css */
-.module {
-  margin-bottom: 10px;
+.filterBy {
+  margin-right: 0.2rem;
+  padding: 0.2rem;
 }
 
-.module label {
-  font-weight: bold;
-}
-
-.module input {
-  margin-bottom: 5px;
-}
-
-.module ul {
+.filterList {
+  display: flex;
   list-style-type: none;
-  padding-left: 0;
+  padding: 0.2rem;
+  margin: 0.1rem;
 }
