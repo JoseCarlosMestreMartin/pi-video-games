@@ -1,18 +1,3 @@
-/* Order.module.css
-
-.orderContainer {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-  }
-  
-  .orderContainer span {
-    margin-right: 5px;
-  }
-  
-  .orderContainer select {
-    margin-right: 10px;
-  } */
   .orderContainer {
     display: flex;
     align-items: center;

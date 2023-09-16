@@ -10,7 +10,7 @@ const Card = (props) => {
         <Link to={`/detail/${id}`} className={styles.navLink}>
           <h3>{name}</h3>
           <img src={imag} />
-          {genres.map(genre => <div>{genre}</div>)}
+          {genres.map((genre, index) => <div key={index}>{genre}</div>)}
         </Link>
       </div>
     </div>

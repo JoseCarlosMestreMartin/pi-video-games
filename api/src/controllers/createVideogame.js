@@ -2,7 +2,7 @@ const { Videogame, Genre } = require(`../db`)
 const  getAllGenres = require("../controllers/getAllGenres");
 
 const createVideogame = async (newVideogame) => {
-  console.log("dentro de createVideogame");
+  //console.log("dentro de createVideogame");
   await getAllGenres();
   try {
     const [videogame, created] = await Videogame.findOrCreate({

@@ -34,9 +34,9 @@ videogamesRouter.get("/:id", async (req, res) => {
 videogamesRouter.post(`/`, async (req, res) => {
   const newVideogame = req.body;
   try {
-    console.log("antes de create videogame: ",req.body);
+    //console.log("antes de create videogame: ",req.body);
     let auxVideogame = await createVideogame(newVideogame);
-    console.log("creo videogames",auxVideogame);
+    //console.log("creo videogames",auxVideogame);
     // const { id, name, imag, rating, description, genres } = await getVideogamesById(
     //   auxVideogame.videogame.id
     // );

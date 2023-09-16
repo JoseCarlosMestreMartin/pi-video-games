@@ -1,9 +1,5 @@
 import {
   GET_ALLGAMES,
-  FILTER_GENRES,
-  FILTER_ORIGIN,
-  ORDER,
-  ALPHABETH,
   GET_VIDEOGAME_BY_NAME,
   GET_ALL_GENRES,
   FILTER,
@@ -14,7 +10,6 @@ import axios from "axios";
 
 const URL = "/videogames/";
 export const filterCard = (payload) => {
-  console.log("dentro del filterCard de action");
   return { type: FILTER, payload };
 };
 export const setFilter = (payload) => {
@@ -22,14 +17,6 @@ export const setFilter = (payload) => {
 };
 export const setOrder = (payload) => {
   return { type: SET_ORDER, payload };
-};
-
-export const orderByRating = (payload) => {
-  return { type: ORDER, payload };
-};
-
-export const alphabetically = (payload) => {
-  return { type: ALPHABETH, payload };
 };
 
 export const getGames = () => {
@@ -51,3 +38,24 @@ export const getAllGenres = () => {
     dispatch({ type: GET_ALL_GENRES, payload: data });
   };
 };
+
+// export const createCard = (card) => {
+//   return (dispatch) => {
+//     axios
+//       .post(`/activities`, card)
+//       .then((res) => {
+//         alert(res.data);
+//         return dispatch({
+//           type: ADD_CARD,
+//           payload: res.data,
+//         });
+//       })
+//       .catch((err) => {
+//         dispatch({
+//           type: ADD_CARD,
+//           payload: [],
+//         });
+//         alert(err.response.data);
+//       });
+//   };
+// };

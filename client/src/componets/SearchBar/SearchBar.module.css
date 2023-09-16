@@ -1,9 +1,9 @@
 
 .container {
-  background-color: rgb(252, 108, 24);;
+  background-color: rgb(200, 200, 200);;
   margin-bottom: 0.1em;
   border-radius: 10px; /* Añade bordes redondeados */
-  border: 2px solid rgb(101, 42, 8); /* Un color más oscuro para los bordes */
+  border: 2px solid rgb(70, 70, 70); /* Un color más oscuro para los bordes */
 }
 
 .container input {
@@ -11,7 +11,7 @@
   cursor: pointer;
   height: 3vh;
   padding: 3px;
-  color: khaki;
+  color: rgb(0, 0, 0);
   background-color: rgb(255, 255, 255);
   border: 2px solid rgb(252, 108, 24); /* Un color más oscuro para los bordes */
   border-radius: 10px; /* Añade bordes redondeados */

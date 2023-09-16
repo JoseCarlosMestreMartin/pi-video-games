@@ -1,8 +1,6 @@
 import { filtrarTarjetasPorPropiedad, sortCardsByCriteria } from "../utils";
 import {
   GET_ALLGAMES,
-//  ORDER,
-  //ALPHABETH,
   GET_VIDEOGAME_BY_NAME,
   GET_ALL_GENRES,
   SET_FILTER,
@@ -21,7 +19,7 @@ const initialState = {
   ],
   nameToSearch: "",
   cardOrder: [{ property: "name", isAscending: true }],//propiedad y tipo de orden
-  typeOfOrderIsAtoZ: true,
+  //typeOfOrderIsAtoZ: true,
   cardOptionToFilter: [], //propieties // Lista de propiedades
 };
 
@@ -36,7 +34,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
       return { ...state, videogames: payload, filterVideogames: payload };
 
     case SET_FILTER:
-      console.log("state.cardOrder4: ", state.cardOrder);
+      //console.log("state.cardOrder4: ", state.cardOrder);
       let auxFilter = state.cardFilter.map((e) => {
         let eAux = e;
         if (e.property === payload.property) {
@@ -44,7 +42,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
         }
         return eAux;
       });
-      console.log("state.cardOrder3: ", state.cardOrder);
+      //console.log("state.cardOrder3: ", state.cardOrder);
       return { ...state, cardFilter: auxFilter };
 
     case SET_ORDER: ////////////////////////////////////////////////
@@ -56,12 +54,12 @@ const rootReducer = (state = initialState, { type, payload }) => {
       }
       let auxCards = state.filterVideogames.slice();
       let auxCardsOrdered = sortCardsByCriteria(auxCards, auxCriteriaToOrder);
-      console.log("state.cardOrder2: ", state.cardOrder);
+      //console.log("state.cardOrder2: ", state.cardOrder);
       return { ...state, filterVideogames: auxCardsOrdered, cardOrder: auxCriteriaToOrder };
 
     ///
     case FILTER:
-      console.log("state.cardOrder5: ", state.cardOrder);
+      //console.log("state.cardOrder5: ", state.cardOrder);
       let filteredCards = state.videogames.slice();
       if (
         state.videogames &&
@@ -80,7 +78,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
         );
         
       } 
-      console.log("----------filteredCards: ", filteredCards);
+      //console.log("----------filteredCards: ", filteredCards);
       return { ...state, filterVideogames: filteredCards };
    
     default:

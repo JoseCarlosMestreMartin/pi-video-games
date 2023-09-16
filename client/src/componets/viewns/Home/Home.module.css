@@ -17,6 +17,7 @@
 .container {
   display: flex;
   flex-direction: row;
-  border: 4px violet solid;
-  background-color: rgb(244, 216, 244);
+  border: 2px rgb(67, 67, 67) solid;
+  background-color: rgb(220, 220, 220);
+  border-radius: 0.5rem;
 }

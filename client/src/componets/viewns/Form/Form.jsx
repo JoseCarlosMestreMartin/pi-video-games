@@ -2,12 +2,10 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styles from "./Form.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllGenres } from "../../../redux/actions";
-import { list } from "list";
 import { obtenerClasificaciones } from "../../../utils";
 
 const Form = () => {
-  const dispatch = useDispatch();
+ // const dispatch = useDispatch();
   const { genres: listGenres, videogames } = useSelector((state) => state);
   const [gameData, setGameData] = useState({
     name: "",
@@ -18,10 +16,6 @@ const Form = () => {
     description: "",
     genres: [],
   });
-  useEffect(() => {
-    console.log("dentro del use efect");
-    //dispatch(getAllGenres());
-  }, []);
   const [errors, setErrors] = useState({});
 
   const validate = () => {
@@ -65,7 +59,7 @@ const Form = () => {
       event.target.selectedOptions,
       (option) => option.value
     );
-    //setGameData({ ...gameData, platforms: selectedOptions });
+    
     setGameData({
       ...gameData,
       platforms: [...gameData.platforms, selectedOptions[0]],
@@ -77,8 +71,6 @@ const Form = () => {
       event.target.selectedOptions,
       (option) => option.value
     );
-    console.log("selectedOptions: ", selectedOptions);
-    //setGameData({ ...gameData, genres: selectedOptions });
     setGameData({
       ...gameData,
       genres: [...gameData.genres, selectedOptions[0]],
@@ -87,8 +79,7 @@ const Form = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("antes de enviar la info con axios");
-    //console.log("gameData: ", gameData);
+// esto esta mal, deberia usar redux como intermediario para conectarse con la api
     axios
       .post("http://localhost:3001/videogames/", gameData)
       .then((res) => alert(`${res} Game save in DB`));
@@ -205,8 +196,8 @@ const Form = () => {
           required
         >
           {listOfPlatform.length &&
-            listOfPlatform.map((option) => (
-              <option key={option} value={option}>
+            listOfPlatform.map((option, index) => (
+              <option key={index} value={option}>
                 {option}
               </option>
             ))}

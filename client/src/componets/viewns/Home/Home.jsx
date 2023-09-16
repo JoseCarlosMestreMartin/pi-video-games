@@ -9,7 +9,9 @@ import Order from "../../Order/Order";
 
 const Home = () => {
   const dispatch = useDispatch();
-  const { filterVideogames, cardFilter } = useSelector((state) => state);
+  //const { filterVideogames, cardFilter } = useSelector((state) => state);
+  const  filterVideogames = useSelector((state) => state.filterVideogames);
+  const cardFilter = useSelector((state) => state.cardFilter);
 
   useEffect(() => {
     !filterVideogames.length && dispatch(getGames());
