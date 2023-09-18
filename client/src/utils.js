@@ -92,5 +92,5 @@ export function sortCardsByCriteria(cardsToOrder, criteriaToOrder) {
       }
     }
     return 0; // If all criteria are equal, maintain the order
-  });
+  });//
 }
