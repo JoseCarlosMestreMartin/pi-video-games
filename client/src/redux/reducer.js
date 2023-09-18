@@ -59,7 +59,6 @@ const rootReducer = (state = initialState, { type, payload }) => {
 
     ///
     case FILTER:
-      //console.log("state.cardOrder5: ", state.cardOrder);
       let filteredCards = state.videogames.slice();
       if (
         state.videogames &&

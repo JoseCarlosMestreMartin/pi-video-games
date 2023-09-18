@@ -65,6 +65,15 @@ export function filtrarTarjetasPorPropiedad(
     );
   }
 }
+export function filterCards(cards, theFilter) {
+  //debe cumplirse card[f.property] === f.selection para  todas los the filter para que retorne esa card
+  
+  return cards.filter(card => {
+    return theFilter.every(f => {
+      return card[f.property] === f.selection;
+    });
+  });
+}
 
 export function sortCardsByCriteria(cardsToOrder, criteriaToOrder) {
   //cardsToOrder es un array que contiene los elementos a rodenar, según los criterios del array criteriaToFilter
