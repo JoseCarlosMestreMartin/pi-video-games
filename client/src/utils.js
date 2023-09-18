@@ -94,3 +94,27 @@ export function sortCardsByCriteria(cardsToOrder, criteriaToOrder) {
     return 0; // If all criteria are equal, maintain the order
   });//
 }
+
+function obtenerListasPorPropiedad(arrayOfCard) {
+  let propiedades = [];
+  let misLista = [];
+
+  // Obtener lista de propiedades
+  arrayOfCard.forEach(card => {
+    propiedades = propiedades.concat(Object.keys(card));
+  });
+
+  // Eliminar duplicados y crear objetos misLista
+  propiedades = [...new Set(propiedades)];
+  propiedades.forEach(propiedad => {
+    let valores = [];
+    arrayOfCard.forEach(card => {
+      if (card.hasOwnProperty(propiedad)) {
+        valores.push(card[propiedad]);
+      }
+    });
+    misLista.push({ propiedad: propiedad, valores: valores });
+  });
+
+  return misLista;
+}
